@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian: #1a1a1a;
+  --color-paper: #ffffff;
+  --color-stage-black: #000000;
+  --color-concrete: #959595;
+  --color-muted: #767676;
+  --color-stone: #90867a;
+  --color-sky-tint: #94bbff;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --text-micro: 11px;
+  --text-micro--line-height: 1.4;
+  --text-micro--letter-spacing: 0.05em;
+  --text-micro--font-weight: 500;
+
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 1.5;
+
+  --text-body: 15px;
+  --text-body--line-height: 1.5;
+  --text-body--letter-spacing: -0.018em;
+
+  --text-subheading: 22px;
+  --text-subheading--line-height: 1.2;
+  --text-subheading--letter-spacing: -0.02em;
+
+  --text-heading-sm: 26px;
+  --text-heading-sm--line-height: 1.1;
+  --text-heading-sm--letter-spacing: -0.023em;
+  --text-heading-sm--font-weight: 300;
+
+  --text-heading: 39px;
+  --text-heading--line-height: 1;
+  --text-heading--letter-spacing: -0.02em;
+  --text-heading--font-weight: 250;
+
+  --text-stat: clamp(2rem, 3vw, 2.4375rem);
+  --text-stat--line-height: 1;
+  --text-stat--letter-spacing: -0.02em;
+  --text-stat--font-weight: 250;
+
+  --text-heading-lg: clamp(2.25rem, 4.5vw, 3.375rem);
+  --text-heading-lg--line-height: 0.98;
+  --text-heading-lg--letter-spacing: -0.04em;
+  --text-heading-lg--font-weight: 250;
+
+  --text-quote: clamp(2rem, 5vw, 3.5rem);
+  --text-quote--line-height: 1.1;
+  --text-quote--letter-spacing: -0.035em;
+  --text-quote--font-weight: 250;
+
+  --text-display: clamp(3.25rem, 10vw, 9rem);
+  --text-display--line-height: 0.88;
+  --text-display--letter-spacing: -0.055em;
+  --text-display--font-weight: 250;
+
+  --radius-card: 30px;
+  --radius-input: 45px;
+
+  --animate-hero-settle: hero-settle 2.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-rise: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @keyframes hero-settle {
+    from {
+      transform: scale(1.06);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@utility section-pad {
+  padding-block: clamp(64px, 9vw, 96px);
+}
+
+@utility section-pad-lg {
+  padding-block: clamp(72px, 10vw, 128px);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+    scrollbar-color: var(--color-obsidian) var(--color-paper);
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-obsidian);
+    caret-color: var(--color-obsidian);
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-obsidian);
+    color: var(--color-paper);
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-paper);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-obsidian);
+    border-radius: 9999px;
+    border: 3px solid var(--color-paper);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-obsidian);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline-offset: 1px;
+  }
+
+  header[data-overlay] :focus-visible {
+    outline-color: var(--color-paper);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .select-chevron {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='m3 6 5 5 5-5' stroke='%231a1a1a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+  }
+}
